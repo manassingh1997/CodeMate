@@ -6,12 +6,15 @@ from auth_app.services.jwt_service import JWTService
 
 class RegisterView(APIView):
 
+    authentication_classes = []  # Registration does NOT require auth
+    permission_classes = []
+
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
-        serializer.is_valide(raise_exception=True)
+        serializer.is_valid(raise_exception=True)  # <-- FIXED TYPO
 
         user = serializer.save()
-        tokens = JWTService.generate_tokens(user)
+        tokens = JWTService.generate_token(user)
 
         return Response({
             "message": "User registered successfully",

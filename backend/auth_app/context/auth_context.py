@@ -12,7 +12,7 @@ class AuthContext:
     
     @classmethod
     def authenticate(cls, auth_type, data):
-        strategy = cls.get_strategy(auth_type)
+        strategy = cls.set_strategy(auth_type)
 
         if not strategy:
             raise ValueError("Invalid authentication method")
