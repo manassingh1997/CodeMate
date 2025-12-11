@@ -1,0 +1,48 @@
+# ==========================
+# OS / System Files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Python / Django
+# ==========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+env/
+venv/
+*.log
+
+# Django Migrations (keep __init__.py)
+backend/**/migrations/
+!backend/**/migrations/__init__.py
+
+# Local Django settings
+backend/.env
+.env
+
+# ==========================
+# Node / React (Vite)
+# ==========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.eslintcache
+frontend/.env
+frontend/.env.*
+!.env.example
+
+# ==========================
+# IDE files
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Build / Static / Media
+# ==========================
+staticfiles/
+media/
