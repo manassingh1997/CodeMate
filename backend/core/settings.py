@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'auth_app',
     'users_app',
     'scraper_app',
+    'coding_logs',
 
 ]
 

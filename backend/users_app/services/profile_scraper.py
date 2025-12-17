@@ -13,7 +13,7 @@ def update_profile_stats(profile, force=False):
         if timezone.now() - profile.last_stats_updated < STATS_TTL:
             return
      '''   
-
+    print("Updating profile stats...-----------\n",profile.leetcode_username)
     if profile.leetcode_username:
         profile.leetcode_total_solved = scrape_leetcode(
             profile.leetcode_username
