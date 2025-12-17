@@ -6,11 +6,13 @@ User = settings.AUTH_USER_MODEL
 
 class CodingLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    problem_link = models.URLField(unique=True)
+    problem_link = models.URLField()
     problem_title = models.CharField(max_length=255)
     difficulty = models.CharField(max_length=30)
     topics = models.JSONField(default=list, blank=True)
     logged_at = models.DateTimeField(auto_now_add=True)
+
+    notes = models.TextField(blank=True)
 
     class Meta:
         ordering = ["-logged_at"]

@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from coding_logs.serializers import CodingLogCreateSerializer
+from coding_logs.serializers import CodingLogCreateSerializer, CodingLogListSerializer
 from coding_logs.models import CodingLog
 from scraper_app.services.leetcode_problem import scrape_problem_from_link
 # Create your views here.
@@ -48,3 +48,15 @@ class CodingLogCreateView(APIView):
                 }
             }, status=201
         )
+    
+
+class CodingLogListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        logs = CodingLog.objects.filter(
+            user=request.user
+        ).order_by('-logged_at')
+
+        serializer = CodingLogListSerializer(logs, many=True)
+        return Response(serializer.data)
