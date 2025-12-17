@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from django.shortcuts import get_object_or_404
 
 from coding_logs.serializers import CodingLogCreateSerializer, CodingLogListSerializer
 from coding_logs.models import CodingLog
@@ -60,3 +61,29 @@ class CodingLogListView(APIView):
 
         serializer = CodingLogListSerializer(logs, many=True)
         return Response(serializer.data)
+    
+
+class CodingLogUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def patch(self, request, pk):
+        log = get_object_or_404(
+            CodingLog,
+            pk=pk,
+            user=request.user
+        )
+
+        serializer = CodingLogCreateSerializer(
+            log,
+            data=request.data,
+            partial=True,
+        )
+
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response({
+            "message": "Notes updated successfully",
+            "notes": log.notes,
+        })
+    
