@@ -22,4 +22,6 @@ urlpatterns = [
     path('auth/', include('auth_app.urls')),
     path('users/', include('users_app.urls')),
     path('coding/', include('coding_logs.urls')),
+    path('analytics/', include('analytics.urls')),
+    path('genai/', include('genai_app.urls')),
 ]
