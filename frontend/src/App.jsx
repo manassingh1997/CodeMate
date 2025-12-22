@@ -5,7 +5,6 @@ import Dashboard from './pages/Dashboard.jsx';
 function App() {
     return (
         <>
-            <h1>CodeMate</h1>
             <BrowserRouter>
                 <Routes>
                     <Route path="/login" element={<Login />} />
