@@ -1,26 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthLayout from "../components/AuthLayout";
-import { loginUser } from "../api/auth";
+import { registerUser } from "../api/auth";
 
-function Login() {
+function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
         try {
-            const data = await loginUser(email, password);
-            localStorage.setItem("access", data.access);
-            localStorage.setItem("refresh", data.refresh);
-            window.location.href = "/";
+            await registerUser(email, password);
+            window.location.href = "/login";
         } catch {
-            setError("Invalid email or password");
+            setError("Registration failed");
         }
     };
 
     return (
-        <AuthLayout subtitle="Track LeetCode progress. Get AI-powered insights.">
+        <AuthLayout subtitle="Build consistency. Crack interviews with CodeMate.">
             {error && <p className="auth-error">{error}</p>}
 
             <input
@@ -39,15 +37,15 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button className="auth-btn" onClick={handleLogin}>
-                Login
+            <button className="auth-btn" onClick={handleRegister}>
+                Create Account
             </button>
 
             <div className="auth-footer">
-                Don’t have an account? <Link to="/register">Register</Link>
+                Already registered? <Link to="/login">Login</Link>
             </div>
         </AuthLayout>
     );
 }
 
-export default Login;
+export default Register;
