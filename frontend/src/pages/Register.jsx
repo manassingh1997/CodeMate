@@ -9,6 +9,10 @@ function Register() {
     const [error, setError] = useState("");
 
     const handleRegister = async () => {
+        console.log({
+            email,
+            password
+        });
         try {
             await registerUser(email, password);
             window.location.href = "/login";
