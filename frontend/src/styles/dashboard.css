@@ -1,0 +1,172 @@
+/* Page background */
+.dashboard-page {
+    min-height: calc(100vh - 64px);
+    background: linear-gradient(135deg, #0f172a, #020617);
+    padding: 32px;
+}
+
+/* Main container */
+.dashboard-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+}
+
+/* Reusable dashboard card */
+.dashboard-card {
+    background: #020617;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    color: #e5e7eb;
+}
+
+/* Card header */
+.dashboard-card-header {
+    margin-bottom: 20px;
+}
+
+.dashboard-card-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.dashboard-card-header p {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* Form fields */
+.dashboard-field {
+    margin-bottom: 16px;
+}
+
+.dashboard-field label {
+    display: block;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+
+/* Read-only value */
+.dashboard-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+/* Inputs */
+.dashboard-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: #e5e7eb;
+}
+
+.dashboard-input:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+/* Buttons */
+.dashboard-btn {
+    margin-top: 8px;
+    padding: 10px 16px;
+    background: #6366f1;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dashboard-btn:hover {
+    background: #4f46e5;
+}
+
+.dashboard-btn:disabled {
+    background: #334155;
+    cursor: not-allowed;
+}
+
+/* Errors */
+.dashboard-error {
+    color: #f87171;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* Loading text */
+.dashboard-loading {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* Stats section */
+.dashboard-stats {
+    margin-top: 24px;
+}
+
+/* Stat card */
+.stat-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 16px 18px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #e5e7eb;
+}
+
+/* Last updated text */
+.stat-updated {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Stats section spacing */
+/* Difficulty row */
+/* Difficulty lines wrapper */
+.leetcode-difficulty-lines {
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* Individual difficulty line */
+.difficulty-line {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 6px;
+    color: #e5e7eb;
+}
+
+/* Subtle color accents */
+.difficulty-line.easy {
+    color: #86efac;
+}
+
+.difficulty-line.medium {
+    color: #fde68a;
+}
+
+.difficulty-line.hard {
+    color: #fca5a5;
+}

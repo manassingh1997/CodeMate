@@ -1,13 +1,14 @@
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
+import "../styles/dashboard.css";
 
 function Layout({ children }) {
     return (
-        <div>
+        <>
             <Navbar />
-            <main style={{ padding: "20px" }}>
+            <main className="dashboard-page">
                 {children}
             </main>
-        </div>
+        </>
     );
 }
 

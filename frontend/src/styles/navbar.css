@@ -1,0 +1,57 @@
+/* Navbar wrapper */
+.navbar {
+    height: 64px;
+    padding: 0 32px;
+    background: #020617;
+    border-bottom: 1px solid #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Brand */
+.navbar-brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #e5e7eb;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #818cf8;
+}
+
+/* Right section */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Links */
+.navbar-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+.navbar-link:hover {
+    color: #e5e7eb;
+}
+
+/* Button */
+.navbar-btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.navbar-btn:hover {
+    background: #4f46e5;
+}
