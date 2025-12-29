@@ -10,11 +10,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = [
             'email',
             'leetcode_username',
-            'gfg_username',
             'leetcode_total_solved',
-            'gfg_total_solved',
+            'leetcode_easy_solved',
+            'leetcode_medium_solved',
+            'leetcode_hard_solved',
             ]
         read_only_fields = [
             "leetcode_total_solved",
-            'gfg_total_solved',
+            'leetcode_easy_solved',
+            'leetcode_medium_solved',
+            'leetcode_hard_solved',
         ]

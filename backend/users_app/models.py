@@ -14,12 +14,12 @@ class UserProfile(models.Model):
 
     #user_input
     leetcode_username = models.CharField(max_length=100, blank=True)
-    gfg_username = models.CharField(max_length=100,blank=True)
 
     # scraped stats (updated later)
     leetcode_total_solved = models.IntegerField(default=0)
-    gfg_total_solved = models.IntegerField(default=0)
-
+    leetcode_easy_solved = models.IntegerField(default=0)
+    leetcode_medium_solved = models.IntegerField(default=0)
+    leetcode_hard_solved = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

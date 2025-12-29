@@ -3,7 +3,12 @@ import requests
 
 def scrape_leetcode(username: str) -> int:
     if not username:
-        return 0
+        return {
+            "total": 0,
+            "easy": 0,
+            "medium": 0,
+            "hard": 0,
+        }
 
     url = "https://leetcode.com/graphql"
 
@@ -34,11 +39,27 @@ def scrape_leetcode(username: str) -> int:
             .get("acSubmissionNum", [])
         )
 
-        for item in stats:
-            if item.get("difficulty") == "All":
-                return item.get("count", 0)
+        result = {
+            "total": 0,
+            "easy": 0,
+            "medium": 0,
+            "hard": 0,
+        }
 
-        return 0
+        for item in stats:
+            diff = item.get("difficulty")
+            count = item.get("count", 0)
+
+            if diff == "All":
+                result["total"] = count
+            elif diff == "Easy":
+                result["easy"] = count
+            elif diff == "Medium":
+                result["medium"] = count
+            elif diff == "Hard":
+                result["hard"] = count
+
+        return result
 
     except Exception:
         return 0

@@ -1,5 +1,4 @@
 from scraper_app.services.leetcode import scrape_leetcode 
-from scraper_app.services.gfg import scrape_gfg
 from users_app.models import UserProfile
 from django.utils import timezone
 from datetime import timedelta
@@ -15,14 +14,13 @@ def update_profile_stats(profile, force=False):
      '''   
     print("Updating profile stats...-----------\n",profile.leetcode_username)
     if profile.leetcode_username:
-        profile.leetcode_total_solved = scrape_leetcode(
+        data = scrape_leetcode(
             profile.leetcode_username
         )
-
-    if profile.gfg_username:
-        profile.gfg_total_solved = scrape_gfg(
-            profile.gfg_username
-        )
+        profile.leetcode_total_solved = data['total']
+        profile.leetcode_easy_solved = data['easy']
+        profile.leetcode_medium_solved = data['medium']
+        profile.leetcode_hard_solved = data['hard']
 
     profile.last_stats_updated = timezone.now()
     profile.save()
