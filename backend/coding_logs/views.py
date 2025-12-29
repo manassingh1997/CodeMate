@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from coding_logs.serializers import CodingLogCreateSerializer, CodingLogListSerializer
 from coding_logs.models import CodingLog
+from coding_logs.pagination import CodingLogPagination
 from scraper_app.services.leetcode_problem import scrape_problem_from_link
 # Create your views here.
 
@@ -59,8 +60,11 @@ class CodingLogListView(APIView):
             user=request.user
         ).order_by('-logged_at')
 
-        serializer = CodingLogListSerializer(logs, many=True)
-        return Response(serializer.data)
+        paginator = CodingLogPagination()
+        paginated_logs = paginator.paginate_queryset(logs, request)
+        serializer = CodingLogListSerializer(paginated_logs, many=True)
+        
+        return paginator.get_paginated_response(serializer.data)
     
 
 class CodingLogUpdateView(APIView):
